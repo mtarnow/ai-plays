@@ -18,93 +18,46 @@ num_choices = 2
 
 
 def some_random_games_first():
-    # Each of these is its own game.
-    for episode in range(5):
+    for episode in range(10):
         env.reset()
-        # this is each frame, up to 200...but we wont make it that far.
         for t in range(200):
-            # This will display the environment
-            # Only display if you really want to see it.
-            # Takes much longer to display it.
             env.render()
-
-            # This will just create a sample action in any environment.
-            # In this environment, the action can be 0 or 1, which is left or right
             action = env.action_space.sample()
-
-            # this executes the environment with an action,
-            # and returns the observation of the environment,
-            # the reward, if the env is over, and other info.
             observation, reward, done, info = env.step(action)
             if done:
                 break
 
 
 def initial_population():
-    # [OBS, MOVES]
-    training_data = []
-    # all scores:
-    scores = []
-    # just the scores that met our threshold:
+    training_data = {'inputs': [], 'outputs': []}
     accepted_scores = []
-    # iterate through however many games we want:
     for _ in range(initial_games):
         score = 0
-        # moves specifically from this environment:
-        game_memory = []
-        # previous observation that we saw
+        game_memory = {'observations': [], 'actions': []}
         prev_observation = []
-        # for each frame in 200
         for _ in range(goal_steps):
-            # choose random action (0 or 1)
             action = random.randrange(0, 2)
-            # do it!
             observation, reward, done, info = env.step(action)
-
-            # notice that the observation is returned FROM the action
-            # so we'll store the previous observation here, pairing
-            # the prev observation to the action we'll take.
             if len(prev_observation) > 0:
-                game_memory.append([prev_observation, action])
+                game_memory['observations'].append(prev_observation)
+                game_memory['actions'].append(action)
             prev_observation = observation
             score += reward
-            if done: break
+            if done:
+                break
 
-        # IF our score is higher than our threshold, we'd like to save
-        # every move we made
-        # NOTE the reinforcement methodology here.
-        # all we're doing is reinforcing the score, we're not trying
-        # to influence the machine in any way as to HOW that score is
-        # reached.
         if score >= score_requirement:
             accepted_scores.append(score)
-            # for data in game_memory:
-            #     convert to one-hot (this is the output layer for our neural network)
-            #     if data[1] == 1:
-            #         output = [0, 1]
-            #     elif data[1] == 0:
-            #         output = [1, 0]
-            #
-            #     saving our training data
-            #     training_data.append([data[0], output])
-
-            indices = [data[1] for data in game_memory]
-            depth = num_choices
             with tf.Session() as sess:
-                output = sess.run(tf.one_hot(indices, depth))
-            for i, data in enumerate(game_memory):
-                training_data.append([data[0], output[i]])
+                outputs = sess.run(tf.one_hot(game_memory['actions'], num_choices))
+            training_data['inputs'] += game_memory['observations']
+            training_data['outputs'] += list(outputs)
 
-        # reset env to play again
         env.reset()
-        # save overall scores
-        scores.append(score)
 
-    # just in case you wanted to reference later
     training_data_save = np.array(training_data)
     np.save('saved.npy', training_data_save)
 
-    # some stats here, to further illustrate the neural network magic!
     print('Average accepted score:', mean(accepted_scores))
     print('Median score for accepted scores:', median(accepted_scores))
     print(Counter(accepted_scores))
@@ -138,13 +91,13 @@ def neural_network_model(input_size):
 
 
 def train_model(training_data, model=False):
-    X = np.array([i[0] for i in training_data]).reshape(-1, len(training_data[0][0]), 1)
-    y = [i[1] for i in training_data]
+    X = np.array(training_data['inputs']).reshape(-1, len(training_data['inputs'][0]), 1)
+    Y = training_data['outputs']
 
     if not model:
         model = neural_network_model(input_size=len(X[0]))
 
-    model.fit({'input': X}, {'targets': y}, n_epoch=5, snapshot_step=500, show_metric=True, run_id='openai_learning')
+    model.fit({'input': X}, {'targets': Y}, n_epoch=5, snapshot_step=500, show_metric=True, run_id='openai_learning')
     return model
 
 
