@@ -30,6 +30,7 @@ TagManager:
   - symbol_X_Goal
   - crate
   - redAgent
+  - bullet
   layers:
   - Default
   - TransparentFX

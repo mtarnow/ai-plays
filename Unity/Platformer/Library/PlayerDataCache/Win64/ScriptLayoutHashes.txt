@@ -1,8 +1,8 @@
 Win64
 PlayerPath?
-C:/Users/Maciej/Unity/Platformer2/Builds/platformInfo5decInt/Platformer2.exe
+C:/Users/Maciej/Unity/Platformer/Builds/noPlatforms/Platformer.exe
 SceneListBegin?
-Assets/Scenes/1agent2crates3platforms.unity
+Assets/MyAssets/Versions/NoPlatforms/GameScene-NoPlatforms.unity
 SceneListEnd?
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.LevelReset
 3c08375166df118bd1801438fc36b92f Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -71,7 +71,7 @@ aa165095bcf0f4d99594ea33df01c81b UnityEngine.UI.dll:UnityEngine.UI.Slider
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-0b6659b28402f4c89b4a07a0ed361425 Assembly-CSharp.dll:.RobotAgent
+a5f9d91dbf7f538feea111c25707909d Assembly-CSharp.dll:.RobotAgent
 d3c76b14a25eebd3a3323dd43297919c Unity.TextMeshPro.dll:TMPro.TMP_InputField
 352455aaadb8c98ff36ead557753abfa Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TiltInput
 357dc9516c87a9d2caf5c0f50c455e56 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterBase
@@ -141,6 +141,7 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TODO
 36218ae36261c02a817ae4de827c29cc Assembly-CSharp.dll:.Ball3DAcademy
 42396cadf10b77f3a077293197e93634 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.WheelEffects
 385666d964b0eabb4136cbb95125e502 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Cameras.ProtectCameraFromWallClip
@@ -166,6 +167,7 @@ b1a500449f4ef21f31d1802f6b38e368 Assembly-CSharp.dll:MLAgents.TargetContact
 4378e1f3f3d1ab5b2b7462ca8cfa270b Assembly-CSharp.dll:.FoodCollectorAgent
 e02729d655cb2eae1abc4a4f7a37af8d Assembly-CSharp.dll:.GridArea
 a8b6c919b2049fcc280823488144371f Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.Joystick
+32f1077c22b43f7dbbe311a31f5570c6 Assembly-CSharp.dll:.Bullet
 f0e000711d33fa53609561155bf634a7 Assembly-CSharp.dll:.WallJumpAgent
 0be044d599f931ccffe2534904e3e625 Assembly-CSharp.dll:.SoccerBallController
 8e5750ad10b0567929995a0473923807 Assembly-CSharp.dll:.HitWall
@@ -190,6 +192,7 @@ a4d879eed97e8d86fd752672fc026fa2 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp-firstpass.dll:.ForcedReset
 f8bd7a92bf9f22d289759689ae7b1fd4 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.SmoothFollow
 9e056b0fc331916ca7b6c27b1af13309 Assembly-CSharp.dll:MLAgents.GroundContact
+c2227ebf45ccacf352b5f1f91ff5c2ed Assembly-CSharp.dll:.Weapon
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 14d684e5eb706041b258044f3a2d3861 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.PlanarReflection
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.Displace
@@ -310,4 +313,8 @@ eadd7ba0b1eb00812a6ee422dd0b97be Assembly-CSharp.dll:.WallJumpAcademy
 19e09d3c7b179d3ca5006d7319a52175 Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.PlatformerCharacter2D
 5b0f94c8c30592889475f84023c1c6f2 Assembly-CSharp.dll:.AgentSoccer
 47cd05cf11ce8beb2fd9a1522f58f5ec Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TODO
+32f1077c22b43f7dbbe311a31f5570c6 Assembly-CSharp.dll:.Bullet
+36218ae36261c02a817ae4de827c29cc Assembly-CSharp.dll:.RobotAcedemy
+8f4ed3ef1057378f6f3565b7de3a3c07 Assembly-CSharp.dll:.PlayArea
+c2227ebf45ccacf352b5f1f91ff5c2ed Assembly-CSharp.dll:.Weapon
+a5f9d91dbf7f538feea111c25707909d Assembly-CSharp.dll:.RobotAgent
