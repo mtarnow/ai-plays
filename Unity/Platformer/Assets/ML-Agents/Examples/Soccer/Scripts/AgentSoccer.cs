@@ -212,23 +212,4 @@ public class AgentSoccer : Agent
     {
         area.ResetBall();
     }
-
-    //public override float[] Heuristic()
-    //{
-    //    var action = new float[2];
-    //    switch (Input.GetAxisRaw("Horizontal"))
-    //    {
-    //        case -1:
-    //            action[0] = 0;
-    //            break;
-    //        case 0:
-    //            action[0] = 1;
-    //            break;
-    //        case 1:
-    //            action[0] = 2;
-    //            break;
-    //    }
-    //    action[1] = CrossPlatformInputManager.GetButtonDown("Jump") ? 1 : 2;
-    //    return action;
-    //}
 }
